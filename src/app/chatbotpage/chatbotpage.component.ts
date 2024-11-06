@@ -18,8 +18,9 @@ import { DomSanitizer } from '@angular/platform-browser';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    FormsModule, 
-    NgForOf],
+    FormsModule,
+    NgForOf,
+  ],
   templateUrl: './chatbotpage.component.html',
   styleUrl: './chatbotpage.component.css',
 })
@@ -38,11 +39,15 @@ export class ChatbotpageComponent {
     );
     this.matIconRegistry.addSvgIcon(
       'guitar',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/guitar.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/icons/guitar.svg'
+      )
     );
     this.matIconRegistry.addSvgIcon(
       'violin',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/violin.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/icons/violin.svg'
+      )
     );
     this.matIconRegistry.addSvgIcon(
       'drum',
@@ -50,7 +55,9 @@ export class ChatbotpageComponent {
     );
     this.matIconRegistry.addSvgIcon(
       'saxophone',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/saxophone.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/icons/saxophone.svg'
+      )
     );
     this.matIconRegistry.addSvgIcon(
       'music',
@@ -69,13 +76,13 @@ export class ChatbotpageComponent {
     this.aiGenerationService.generateContent(inputText).subscribe({
       next: (data: string) => {
         this.response = '小乐：' + data;
-        this.instrument = this.aiGenerationService.findFirstInstrument(this.response) || 'music'
+        this.instrument =
+          this.aiGenerationService.findFirstInstrument(this.response) ||
+          'music';
       },
       error: (error) => {
         console.error('Error:', error);
       },
     });
   }
-
-  
 }

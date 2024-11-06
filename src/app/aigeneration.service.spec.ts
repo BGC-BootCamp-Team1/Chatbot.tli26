@@ -1,5 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AIGenerationService } from './aigeneration.service';
 import { environment } from '../environments/environment';
@@ -23,7 +26,7 @@ describe('AIGenerationService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [AIGenerationService]
+      providers: [AIGenerationService],
     });
     service = TestBed.inject(AIGenerationService);
     httpMock = TestBed.inject(HttpTestingController);
@@ -43,25 +46,27 @@ describe('AIGenerationService', () => {
         choices: [
           {
             message: {
-              content: 'How about the piano?'
-            }
-          }
-        ]
-      }
+              content: 'How about the piano?',
+            },
+          },
+        ],
+      },
     };
-    service.generateContent(inputText).subscribe(content => {
+    service.generateContent(inputText).subscribe((content) => {
       expect(content).toEqual('How about the piano?');
     });
     const req = httpMock.expectOne(service['apiUrl']);
     expect(req.request.method).toBe('POST');
-    expect(req.request.headers.get('Authorization')).toBe(`Bearer ${service['apiKey']}`);
+    expect(req.request.headers.get('Authorization')).toBe(
+      `Bearer ${service['apiKey']}`
+    );
     expect(req.request.headers.get('Content-Type')).toBe('application/json');
 
     req.flush(mockResponse);
   });
 
   it('should return first instrument name', () => {
-    expect(service.findFirstInstrument('她会弹钢琴和吉他')).toBe('钢琴')
+    expect(service.findFirstInstrument('她会弹钢琴和吉他')).toBe('钢琴');
   });
 
   it('should return null if no instrument is found', () => {
@@ -69,7 +74,7 @@ describe('AIGenerationService', () => {
     const instrument = service.findFirstInstrument(text);
     expect(instrument).toBeNull();
   });
-  
+
   it('should generate a random number', () => {
     const randomNum = service['getRandomNum']();
     expect(randomNum).toBeLessThan(2 ** 32);
