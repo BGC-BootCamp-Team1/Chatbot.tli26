@@ -1,2 +1,15 @@
-<input (keydown.enter)="onEnter($event)" placeholder={{inputText}} autofocus>
+    <mat-label>请输入</mat-label>
+    <textarea matInput
+    [(ngModel)]="inputText"
+    (keydown.enter)="onEnter($event)"
+    data-cy="input-text-area"
+    >
+    </textarea>
 
+    <span class="material-symbols-outlined"> bolt </span>
+    <mat-card appearance="outlined">
+      <mat-card-content data-cy="question-area">{{ question }}</mat-card-content>
+    </mat-card>
+    <mat-card appearance="outlined">
+      <mat-card-content data-cy="response-area">{{ response }}</mat-card-content>
+    </mat-card>
