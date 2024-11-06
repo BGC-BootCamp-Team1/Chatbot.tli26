@@ -4,17 +4,51 @@
   </mat-card-header>
   <mat-card-content>
     <form class="input-form">
-      <textarea
-        matInput
-        class="full-width"
-        [(ngModel)]="inputText"
-        [ngModelOptions]="{ standalone: true }"
-        (keydown.enter)="onEnter($event)"
-        data-cy="input-text-area"
-        rows="4"
-      >
-      </textarea>
-      <span class="material-symbols-outlined icon">bolt</span>
+      <div class="input-row">
+        <textarea
+          matInput
+          class="text-area full-width"
+          [(ngModel)]="inputText"
+          [ngModelOptions]="{ standalone: true }"
+          (keydown.enter)="onEnter($event)"
+          data-cy="input-text-area"
+          rows="4"
+          placeholder="输入你的文本"
+        ></textarea>
+
+        <div class="icon-container">
+          <mat-icon
+            class="material-symbols-outlined icon"
+            svgIcon="music"
+            *ngIf="instrument === 'music'"
+          ></mat-icon>
+          <mat-icon
+            class="material-symbols-outlined icon"
+            svgIcon="piano"
+            *ngIf="instrument === '钢琴'"
+          ></mat-icon>
+          <mat-icon
+            class="material-symbols-outlined icon"
+            svgIcon="guitar"
+            *ngIf="instrument === '吉他'"
+          ></mat-icon>
+          <mat-icon
+            class="material-symbols-outlined icon"
+            svgIcon="violin"
+            *ngIf="instrument === '小提琴'"
+          ></mat-icon>
+          <mat-icon
+            class="material-symbols-outlined icon"
+            svgIcon="drum"
+            *ngIf="instrument === '鼓'"
+          ></mat-icon>
+          <mat-icon
+            class="material-symbols-outlined icon"
+            svgIcon="saxophone"
+            *ngIf="instrument === '萨克斯'"
+          ></mat-icon>
+        </div>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>

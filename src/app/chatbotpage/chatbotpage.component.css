@@ -1,18 +1,66 @@
 .card-container {
-    margin: 20px;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  background-color: #f5f5f5;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.text-area {
+  flex-grow: 1;
+  margin: 0;
+  height: auto;
+  padding: 8px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  font-size: 16px; 
+  background-color: #fff; 
+  resize: vertical; 
+}
+
+.full-width {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center; 
+  gap: 8px;
+  height: 100%; 
+}
+
+.icon {
+  font-size: 24px;
+  color: rgb(146, 11, 146); /* 设置图标颜色为紫色 */
+  fill: purple;
+}
+
+mat-card-header {
+    background-color: #81b572; /* 头部背景颜色 */
+    color: #fff; /* 头部文字颜色 */
+    padding: 8px; /* 头部内边距 */
+    border-radius: 8px 8px 0 0; /* 头部圆角 */
   }
-  
-  .input-form {
-    display: flex;
-    align-items: center;
-  }
-  
-  .full-width {
-    width: 100%;
-  }
-  
-  .icon {
-    font-size: 36px;
-    margin-left: 10px;
-    color: #ff9800; /* 可以根据需要更改颜色 */
+
+  mat-card-content {
+    padding: 16px; /* 内容内边距 */
+    font-size: 16px; /* 内容字体大小 */
+    background-color: #fafafa; /* 内容背景颜色 */
+    border-radius: 0 0 8px 8px; /* 内容圆角 */
   }

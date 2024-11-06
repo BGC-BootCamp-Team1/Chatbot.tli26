@@ -49,7 +49,7 @@ export class AIGenerationService {
         "model": "qwen-max",
         "input": {
           "messages": [
-            { "role": "system", "content": "你是一个从业多年的专业音乐人,我会给你一些话，你根据这些话给出专业回复，回复中只能出现一种乐器的名字。" },
+            { "role": "system", "content": "你是一个从业多年的专业音乐人,我会给你一些话，你根据这些话给出专业性的回复和解释，回复中只能出现一种乐器的名字。" },
             { "content": inputText, "role": "user" }
           ]
         },
