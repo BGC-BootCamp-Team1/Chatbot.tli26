@@ -47,8 +47,7 @@
 
 .icon {
   font-size: 24px;
-  color: rgb(146, 11, 146); /* 设置图标颜色为紫色 */
-  fill: purple;
+  fill: #4cb474;
 }
 
 mat-card-header {
