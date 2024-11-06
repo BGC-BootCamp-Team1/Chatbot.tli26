@@ -1,15 +1,38 @@
-    <mat-label>请输入</mat-label>
-    <textarea matInput
-    [(ngModel)]="inputText"
-    (keydown.enter)="onEnter($event)"
-    data-cy="input-text-area"
-    >
-    </textarea>
+<mat-card class="card-container">
+  <mat-card-header>
+    <mat-card-title>请输入</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="input-form">
+      <textarea
+        matInput
+        class="full-width"
+        [(ngModel)]="inputText"
+        [ngModelOptions]="{ standalone: true }"
+        (keydown.enter)="onEnter($event)"
+        data-cy="input-text-area"
+        rows="4"
+      >
+      </textarea>
+      <span class="material-symbols-outlined icon">bolt</span>
+    </form>
+  </mat-card-content>
+</mat-card>
 
-    <span class="material-symbols-outlined"> bolt </span>
-    <mat-card appearance="outlined">
-      <mat-card-content data-cy="question-area">{{ question }}</mat-card-content>
-    </mat-card>
-    <mat-card appearance="outlined">
-      <mat-card-content data-cy="response-area">{{ response }}</mat-card-content>
-    </mat-card>
+<mat-card class="card-container">
+  <mat-card-header>
+    <mat-card-title>问题</mat-card-title>
+  </mat-card-header>
+  <mat-card-content data-cy="question-area">
+    {{ question }}
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="card-container">
+  <mat-card-header>
+    <mat-card-title>回答</mat-card-title>
+  </mat-card-header>
+  <mat-card-content data-cy="response-area">
+    {{ response }}
+  </mat-card-content>
+</mat-card>
