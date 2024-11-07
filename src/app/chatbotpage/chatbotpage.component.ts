@@ -67,7 +67,8 @@ export class ChatbotpageComponent {
 
   onEnter(event: any): void {
     this.question = '你：' + event.target.value;
-    // this.response = 'Bot:'+
+    this.response = 'Loading...'
+    this.instrument = 'music'
     this.generateResponse(this.inputText);
     event.target.value = '';
   }
@@ -75,7 +76,7 @@ export class ChatbotpageComponent {
   private generateResponse(inputText: string) {
     this.aiGenerationService.generateContent(inputText).subscribe({
       next: (data: string) => {
-        this.response = '小乐：' + data;
+        this.response = '专业音乐人：' + data;
         this.instrument =
           this.aiGenerationService.findFirstInstrument(this.response) ||
           'music';
